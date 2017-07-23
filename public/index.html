@@ -90,6 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="王玉坤的小园子">
 <meta property="og:description" content="个人站">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="王玉坤的小园子">
 <meta name="twitter:description" content="个人站">
@@ -181,6 +182,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -197,16 +208,6 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-schedule">
-          <a href="/schedule" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
-            
-            日程
           </a>
         </li>
       
@@ -249,8 +250,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/24/hello-world/" itemprop="url">
-                  Hello World
+                <a class="post-title-link" href="/2017/07/23/使用GitLab-CI进行持续集成/" itemprop="url">
+                  使用GitLab CI进行持续集成
                 </a>
               
             
@@ -263,11 +264,30 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-24T09:33:05+08:00" content="2016-10-24">
-              2016-10-24
+            <time itemprop="dateCreated" datetime="2017-07-23T18:38:48+08:00" content="2017-07-23">
+              2017-07-23
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -292,9 +312,10 @@
 
       
         
-          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+          <p>从GitLab8.0开始，就内置了GitLab CI，不管围绕着gitlab建立了怎样的workflow，CI都是不可缺少的。</p>
+<p>如果你的团队使用GitLab，同时又希望研发人员自己承担DevOps的角色，那GitLab CI将是你很好的选择。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/24/hello-world/#more" rel="contents">
+            <a class="btn" href="/2017/07/23/使用GitLab-CI进行持续集成/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -371,7 +392,21 @@
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -405,7 +440,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
