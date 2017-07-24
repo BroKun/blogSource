@@ -17,11 +17,6 @@ script:
   - hexo g
 
 after_script:
- # 发布到 私有服务器
-  - tar -jcf blogSource.tar.bz2 *    # 打包并压缩代码
-  - scp blogSource.tar.bz2 blog@45.32.44.113:~/  # 复制到生产服务器上
-  - ssh blog@45.32.44.113 'rm -rf blogSource'  # 删除的静态文件
-  - ssh blog@45.32.44.113 'mkdir -p blogSource && tar -jxf indoor-server.tar.bz2 -C blogSource'   # 解压
  # 发布到 github pages
   - cd ./public
   - git init
@@ -30,6 +25,11 @@ after_script:
   - git add .
   - git commit -m "Update docs"
   - git push --force --quiet "https://${github_token}@${github_ref}" master:master
+ # 发布到 私有服务器
+  - tar -jcf blogSource.tar.bz2 *    # 打包并压缩代码
+  - scp blogSource.tar.bz2 blog@45.32.44.113:~/  # 复制到生产服务器上
+  - ssh blog@45.32.44.113 'rm -rf blogSource'  # 删除的静态文件
+  - ssh blog@45.32.44.113 'mkdir -p blogSource && tar -jxf indoor-server.tar.bz2 -C blogSource'   # 解压
 
 
 branches:
