@@ -15,12 +15,13 @@ categories:
 
 <!--more-->
 
+![image](https://docs.gitlab.com/ee/ci/img/cicd_pipeline_infograph.png)
+
 # 特点
 
 * GitLab CI的构建流程依托于每台服务器上的GitLab Runner，Runner需要主动注册到Gitlab CI，免去了复杂认证设置，Runner直接在服务器上运行，对本地的操作也会更方便。
 * PipeLine依托在项目中配置的.gitlab-ci.yml文件，构建过程管理与研发流程贴得更近。
 
-![image](/images/gitlab-ci/cicd_pipeline_infograph.png)
 
 
 ## 说明
@@ -65,6 +66,10 @@ Runner registered successfully. Feel free to start it, but if it's running alrea
 ```
 同时会在 /etc/gitlab-runner/config.toml 生成一份配置文件，可以再次修改部分配置信息，runner会自动重启。
 在gitlab的runner配置项中，此时也可以看到该runner的，也可以在这里修改runner描述信息和tags等。
+![image](/images/gitlab-ci/runner-added.png)
+
+一个注册好的runner在其他的代码仓库也是可以看到的，可以选择在多个项目中启用。
+![image](/images/gitlab-ci/runner-exist.png)
 
 ## 配置.gitlab-ci.yml
 
@@ -173,6 +178,9 @@ GitLab的CI构建过程分为Pipeline、stage、job三个层次
 
 一个仓库内可以有多个.gitlab-ci.yml文件，每个文件都可以成为一个Pipeline,GitLab通过对job的解析，job指定的分支与当前分支对应，并且存在tags标明的runner时，构成一条可用的Pipeline。
 
+可用的Pipeline可以在gitlab上直接查看。
+![image](/images/gitlab-ci/pipeline.png)
+
 前面我的配置生效以后，只有在dev与test分支变化时，会触发Pipeline，其中install和test两个stage是公共的，并且允许test失败，前两个stage结束以后，deploy_dev只会在dev分支变化的时候触发，并且寻找tags包含dev的runner来执行，这样可以保证在dev分支更新时只有指定的runner执行了。
 
 ## 效果
@@ -180,3 +188,4 @@ GitLab的CI构建过程分为Pipeline、stage、job三个层次
 配置结束以后，就可以在GitLab的Pipeline和Jobs两个地方看到执行情况了，在Jobs的位置可以看到每个步骤在服务器上的执行情况。
 
 
+![image](/images/gitlab-ci/jobs.png)
