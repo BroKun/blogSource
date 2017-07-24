@@ -22,4 +22,4 @@ branches:
     - master
 env:
  global:
-   - github_ref: github.com/lifengsofts/lifengsofts.github.io.git
+   - github_ref: github.com/BroKun/BroKun.github.io.git
