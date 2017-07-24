@@ -1,40 +1,31 @@
 language: node_js
 node_js: stable
-
-# 配置环境
 before_install:
-  - openssl aes-256-cbc -K $encrypted_3550d7f81954_key -iv $encrypted_3550d7f81954_iv -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
-  - chmod 600 ~/.ssh/id_rsa 
-  # 配置 ssh
-  - eval $(ssh-agent)
-  - ssh-add ~/.ssh/id_rsa
-
+- openssl aes-256-cbc -K $encrypted_3550d7f81954_key -iv $encrypted_3550d7f81954_iv
+  -in id_rsa.enc -out id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- eval $(ssh-agent)
+- ssh-add ~/.ssh/id_rsa
 install:
-  - npm install
-
+- npm install
 script:
-  - hexo g
-
+- hexo g
 after_script:
- # 发布到 github pages
-  - cd ./public
-  - git init
-  - git config user.name "BroKun"
-  - git config user.email "brokun0128@gmail.com"
-  - git add .
-  - git commit -m "Update docs"
-  - git push --force --quiet "https://${github_token}@${github_ref}" master:master
- # 发布到 私有服务器
-  - tar -jcf blogSource.tar.bz2 *    # 打包并压缩代码
-  - scp blogSource.tar.bz2 blog@45.32.44.113:~/  # 复制到生产服务器上
-  - ssh blog@45.32.44.113 'rm -rf blogSource'  # 删除的静态文件
-  - ssh blog@45.32.44.113 'mkdir -p blogSource && tar -jxf indoor-server.tar.bz2 -C blogSource'   # 解压
-
-
+- cd ./public
+- git init
+- git config user.name "BroKun"
+- git config user.email "brokun0128@gmail.com"
+- git add .
+- git commit -m "Update docs"
+- git push --force --quiet "https://${github_token}@${github_ref}" master:master
+- tar -jcf blogSource.tar.bz2 *
+- scp blogSource.tar.bz2 blog@45.32.44.113:~/
+- ssh blog@45.32.44.113 'rm -rf blogSource'
+- ssh blog@45.32.44.113 'mkdir -p blogSource && tar -jxf indoor-server.tar.bz2 -C
+  blogSource'
 branches:
   only:
-    - master
+  - master
 env:
- global:
-   - github_ref: github.com/BroKun/BroKun.github.io.git
-
+  global:
+  - github_ref: github.com/BroKun/BroKun.github.io.git
