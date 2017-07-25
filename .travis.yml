@@ -20,8 +20,7 @@ after_script:
 - tar -czf blogSource.tar.gz *
 - scp blogSource.tar.gz blog@45.32.44.113:~/
 - ssh blog@45.32.44.113 'rm -rf blogSource'
-- ssh blog@45.32.44.113 'mkdir -p blogSource && tar -xzvf blogSource.tar.gz
-  blogSource'
+- ssh blog@45.32.44.113 'mkdir -p blogSource && tar -xzvf blogSource.tar.gz -C blogSource'
 branches:
   only:
   - master
