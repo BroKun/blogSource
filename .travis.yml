@@ -20,7 +20,7 @@ after_script:
 - tar -jcf blogSource.tar.bz2 *
 - scp blogSource.tar.bz2 blog@45.32.44.113:~/
 - ssh blog@45.32.44.113 'rm -rf blogSource'
-- ssh blog@45.32.44.113 'mkdir -p blogSource && tar -jxf indoor-server.tar.bz2 -C
+- ssh blog@45.32.44.113 'mkdir -p blogSource && tar -jxf blogSource.tar.bz2 -C
   blogSource'
 branches:
   only:
