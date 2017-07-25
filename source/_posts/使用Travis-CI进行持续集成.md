@@ -14,3 +14,4 @@ categories:
 Travis CI是当前最受欢迎的CI套件，Saas模式的服务独树一帜，流畅的使用方案让人欲罢不能。
 
 本文以Hexo博客的自动部署为例，介绍如何使用Travis CI完成项目的自动构建和部署到github pages以及远程服务器。
+
