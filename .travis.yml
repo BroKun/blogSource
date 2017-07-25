@@ -17,10 +17,10 @@ after_script:
 - git add .
 - git commit -m "Update docs"
 - git push --force --quiet "https://${github_token}@${github_ref}" master:master
-- tar -jcf blogSource.tar.bz2 *
-- scp blogSource.tar.bz2 blog@45.32.44.113:~/
+- tar -czf blogSource.tar.gz *
+- scp blogSource.tar.gz blog@45.32.44.113:~/
 - ssh blog@45.32.44.113 'rm -rf blogSource'
-- ssh blog@45.32.44.113 'mkdir -p blogSource && tar -jxf blogSource.tar.bz2 -C
+- ssh blog@45.32.44.113 'mkdir -p blogSource && tar -xzvf blogSource.tar.gz
   blogSource'
 branches:
   only:
