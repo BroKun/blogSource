@@ -17,7 +17,7 @@ after_script:
 - ssh blog@45.32.44.113 'mkdir -p blogSource && tar -xzvf blogSource.tar.gz -C blogSource'
 deploy:
   provider: pages
-  local_dir: ./public
+  local_dir: public/
   repo: BroKun.github.io
   target_branch: master
   email: brokun0128@gmail.com
