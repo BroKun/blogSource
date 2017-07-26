@@ -18,7 +18,7 @@ after_script:
 deploy:
   provider: pages
   local_dir: public/
-  repo: BroKun.github.io
+  repo: BroKun/BroKun.github.io
   target_branch: master
   email: brokun0128@gmail.com
   name: BroKun
