@@ -15,3 +15,10 @@ Travis CI是当前最受欢迎的CI套件，Saas模式的服务独树一帜，�
 
 本文以Hexo博客的自动部署为例，介绍如何使用Travis CI完成项目的自动构建和部署到github pages以及远程服务器。
 
+### Travis CI能做什么
+作为一个Saas模式的CI服务提供者，Travis CI为你的每次构建提供一个独立的构建环境，支持[多种语言](https://docs.travis-ci.com/user/languages/)，预置了多重环境配置模式，内置了多重发布模式。
+
+## 在Travis CI上注册并关联项目
+ 
+对于github上的开源项目，访问Travis CI
+## 
