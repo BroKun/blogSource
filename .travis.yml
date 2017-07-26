@@ -1,20 +1,9 @@
 language: node_js
 node_js: stable
-before_install:
-- openssl aes-256-cbc -K $encrypted_3550d7f81954_key -iv $encrypted_3550d7f81954_iv
-  -in .travis/id_rsa.enc -out  ~/.ssh/id_rsa -d
-- chmod 600 ~/.ssh/id_rsa
-- echo -e "Host 45.32.44.113\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 install:
 - npm install
 script:
 - hexo g
-after_script:
-- cd ./public
-- tar -czf blogSource.tar.gz *
-- scp blogSource.tar.gz blog@45.32.44.113:~/
-- ssh blog@45.32.44.113 'rm -rf blogSource'
-- ssh blog@45.32.44.113 'mkdir -p blogSource && tar -xzvf blogSource.tar.gz -C blogSource'
 deploy:
   provider: pages
   local_dir: public/
