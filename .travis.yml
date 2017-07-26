@@ -11,19 +11,21 @@ script:
 - hexo g
 after_script:
 - cd ./public
-- git init
-- git config user.name "BroKun"
-- git config user.email "brokun0128@gmail.com"
-- git add .
-- git commit -m "Update docs"
-- git push --force --quiet "https://${github_token}@${github_ref}" master:master
 - tar -czf blogSource.tar.gz *
 - scp blogSource.tar.gz blog@45.32.44.113:~/
 - ssh blog@45.32.44.113 'rm -rf blogSource'
 - ssh blog@45.32.44.113 'mkdir -p blogSource && tar -xzvf blogSource.tar.gz -C blogSource'
+deploy:
+  provider: pages
+  local_dir: ./public
+  repo: BroKun.github.io
+  target_branch: master
+  email: brokun0128@gmail.com
+  name: BroKun
+  skip_cleanup: true
+  github_token: ${github_token} # Set in travis-ci.org dashboard
+  on:
+    branch: master
 branches:
   only:
   - master
-env:
-  global:
-  - github_ref: github.com/BroKun/BroKun.github.io.git
