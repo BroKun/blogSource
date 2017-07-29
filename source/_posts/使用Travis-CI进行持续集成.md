@@ -149,4 +149,47 @@ $ travis login
 ```shell
 $ travis encrypt-file id_rsa --add
 ```
---add选项会在
+--add参数会在git仓库内的.travis.yml中增加
+```
+before_install:
+- openssl aes-256-cbc -K $encrypted_cf2f27b2e746_key -iv $encrypted_cf2f27b2e746_iv
+  -in id_rsa.enc -out id_rsa -d
+```
+在travis网站上的项目配置里，也可以看到增加了两个环境变量
+![加密过的环境变量](/images/travis-ci/encrypted.png)
+
+travis把解密需要的信息保存在了自己的服务器上，我们就不用担心私钥信息丢失了，这时候把项目仓库.travis文件夹里的原始私钥删除，只保留id_rsa.enc就可以了。
+
+### 在.travis.yml中编写构建和发布过程
+
+一个完整的例子如下:
+```
+sudo: false
+language: node_js
+node_js:
+- '7.10.1'
+
+before_install:
+- openssl aes-256-cbc -K $encrypted_cf2f27b2e746_key -iv $encrypted_cf2f27b2e746_iv
+  -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- echo -e "Host 101.200.36.181\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- tar -czf relationship-server.tar.gz *
+install:
+- npm i npminstall && npminstall
+script:
+- npm run ci
+after_script:
+- npminstall codecov && codecov
+- npm i coveralls
+- cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls
+- scp relationship-server.tar.gz brokun@101.200.36.181:~/
+- ssh brokun@101.200.36.181 'rm -rf relationship-server'
+- ssh brokun@101.200.36.181 'mkdir -p relationship-server && tar -xzvf relationship-server.tar.gz -C relationship-server'
+- ssh brokun@101.200.36.181 '. ./relationship-server.sh'
+```
+这里的Node程序使用了Egg框架，在travis上执行lint与单元测试。结束之后使用[coveralls](https://coveralls.io/)发布了测试结果。然后发布程序，在远程服务器上我预先放置了部署脚本，来完成程序重启相关的工作。
+
+需要注意的有:   
+1. Travis Client自动生成的解密脚本不能给出正确的加解密文件路径，需要手动调整。
+2. 私钥的文件访问权限一定要修改，脚本里还在.ssh文件夹增加了配置，关闭了对指定服务器的严格检查，否则会出现需要用户确认的步骤，导致脚本无法执行。
