@@ -8,17 +8,14 @@ categories:
  - 工具
 ---
 
-每一个有逼格的github项目，都需要徽记来装点门面，这里给大家介绍下如何获得一枚构建状态徽记。
-[![Build Status](https://www.travis-ci.org/BroKun/blogSource.svg?branch=master)](https://www.travis-ci.org/BroKun/blogSource)
-## 简介
 Travis CI是当前最受欢迎的CI套件，Saas模式的服务独树一帜，流畅的使用方案让人欲罢不能。
-
 作为一个Saas模式的CI服务提供者，Travis CI为你的每次构建提供一个独立的构建环境，支持[多种语言](https://docs.travis-ci.com/user/languages/)，预置了多种环境配置模式，内置了多种发布模式。
+本文以Hexo博客构建并发布到github pages,以及Node工程构建并发布到私有服务器为例，介绍Travis的使用方式，帮助大家为自己的项目增加一枚构建徽记。
+[![Build Status](https://www.travis-ci.org/BroKun/blogSource.svg?branch=master)](https://www.travis-ci.org/BroKun/blogSource)
 
-本文以Hexo博客构建并发布到github pages,以及Node工程构建并发布到私有服务器为例，介绍Travis的使用方式。
+<!--more-->
 
 ## 在Travis CI上注册并关联项目
- 
 对于github上的开源项目，访问[Travis CI](https://www.travis-ci.org/),点击右上角使用github帐号登录。
 ![www.travis-ci.org](/images/travis-ci/index.png)
 
@@ -39,7 +36,6 @@ travis已经给了你很详细的使用指导：
 大家在这里把开关打开就算完成了。
 
 ## Hexo博客构建和部署github pages的配置
-
 Hexo虽然提供了deploy到github的支持，但是对于更换机器等情况而言，依赖越多用起来越复杂，想随时随地往仓库里push一个md文件，就完成发布的话，就要考虑自动构建的方式了。
 
 使用travis来完成这项工作有两个选择:
@@ -54,7 +50,6 @@ Hexo虽然提供了deploy到github的支持，但是对于更换机器等情况�
 生成的token信息请妥善保管。
 
 ### travis环境设置
-
 登录到travis，回到刚才repo列表页面，需要构建的项目开关旁边有一个设置按钮，点击进入设置。
 
 在General中把构建的触发条件选好。
@@ -115,7 +110,6 @@ env:
 ```
 
 ## 构建Node工程并发布到私有服务器
-
 如果希望把工程发布到自己的服务器，需要需要做的会多一点，首先要明确如何去做这件事。我的选择是构建过程和测试在travis的环境中运行，通过ssh把源码发送到远程服务器，在远程执行部署脚本。
 
 ### 配置远程ssh登录
@@ -137,7 +131,7 @@ $ chmod 600 ~/.ssh/authorized_keys
 ```shell
 $ gem install travis
 ```
-    PS:Travis Client是基于Ruby的，需要安装Ruby环境支持，我的机器为此增加了ruby rubygems ruby-devel等包，如果出现ruby版本问题，建议使用RVM。
+PS:Travis Client是基于Ruby的，需要安装Ruby环境支持，我的机器为此增加了ruby rubygems ruby-devel等包，如果出现ruby版本问题，建议使用RVM。
 
 登录到Travis
 ```shell
@@ -161,7 +155,6 @@ before_install:
 travis把解密需要的信息保存在了自己的服务器上，我们就不用担心私钥信息丢失了，这时候把项目仓库.travis文件夹里的原始私钥删除，只保留id_rsa.enc就可以了。
 
 ### 在.travis.yml中编写构建和发布过程
-
 一个完整的例子如下:
 ```
 sudo: false
@@ -189,7 +182,6 @@ after_script:
 - ssh brokun@101.200.36.181 '. ./relationship-server.sh'
 ```
 这里的Node程序使用了Egg框架，在travis上执行lint与单元测试。结束之后使用[coveralls](https://coveralls.io/)发布了测试结果。然后发布程序，在远程服务器上我预先放置了部署脚本，来完成程序重启相关的工作。
-
 需要注意的有:   
 1. Travis Client自动生成的解密脚本不能给出正确的加解密文件路径，需要手动调整。
 2. 私钥的文件访问权限一定要修改，脚本里还在.ssh文件夹增加了配置，关闭了对指定服务器的严格检查，否则会出现需要用户确认的步骤，导致脚本无法执行。
