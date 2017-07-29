@@ -4,3 +4,5 @@ node_modules
 .idea
 .deploy_git
 public
+db.json
+debug.log
