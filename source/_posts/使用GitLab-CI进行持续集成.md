@@ -144,6 +144,7 @@ job通过stage标明自己所属的阶段，通过only和except来选定可以�
 
 ### 文件格式
 配置文件中除了保留字及其含义，搬运自官方文档:
+
 |Keyword|Required|Description|   
 |:------|:-------|:---------|   
 |image |no |Use docker image, covered in Use Docker|
@@ -156,6 +157,7 @@ job通过stage标明自己所属的阶段，通过only和except来选定可以�
 |cache	|no	|Define list of files that should be cached between subsequent runs|
 
 除此之外的key，都被定义为job，在我给出的配置文件中，install、test、deploy_dev、deploy_test均为job。job定义的属性为:
+
 |Keyword	|Required	|Description|  
 |:------|:-------|:---------| 
 |script	|yes	|Defines a shell script which is executed by Runner|
