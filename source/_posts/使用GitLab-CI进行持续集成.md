@@ -45,7 +45,7 @@ GitLab Runner会在服务器上创建gitlab-runner用户，该用户的目录会
 ## 注册 GitLab Runner
 我这里选择注册一个Specific Runner，需要Url和Token，这两个信息可以从GitLab的项目设置里拿到。位置在设置->runners
 
-![image](/images/gitlab-ci/runner-url-token.png)
+![image](http://blog-1253747550.cossh.myqcloud.com/Images/gitlab-ci/runner-url-token.png)
 
 ```
 root@host:# gitlab-runner register
@@ -60,10 +60,10 @@ Runner registered successfully. Feel free to start it, but if it's running alrea
 ```
 同时会在 /etc/gitlab-runner/config.toml 生成一份配置文件，可以再次修改部分配置信息，runner会自动重启。
 在gitlab的runner配置项中，此时也可以看到该runner的，也可以在这里修改runner描述信息和tags等。
-![image](/images/gitlab-ci/runner-added.png)
+![image](http://blog-1253747550.cossh.myqcloud.com/Images/gitlab-ci/runner-added.png)
 
 一个注册好的runner在其他的代码仓库也是可以看到的，可以选择在多个项目中启用。
-![image](/images/gitlab-ci/runner-exist.png)
+![image](http://blog-1253747550.cossh.myqcloud.com/Images/gitlab-ci/runner-exist.png)
 
 ## 配置.gitlab-ci.yml
 配置好runner以后，在项目中添加.gitlab-ci.yml文件以触发runner的执行。
@@ -137,7 +137,7 @@ deploy_test:
 gitlab会监视仓库内每个分支上的.gitlab-ci.yml文件，在仓库更新的时候触发构建动作。
 一个仓库内可以有多个.gitlab-ci.yml文件，每个文件都可以成为一个Pipeline,GitLab通过对job的解析，job指定的分支与当前分支对应，并且根据tags等信息匹配到runner时，构成一条可用的Pipeline。
 可用的Pipeline可以在gitlab上直接查看。
-![image](/images/gitlab-ci/pipeline.png)
+![image](http://blog-1253747550.cossh.myqcloud.com/Images/gitlab-ci/pipeline.png)
 
 job通过stage标明自己所属的阶段，通过only和except来选定可以触发执行的分支。通过tags来指定执行命令的具体runner，当没有tags的时候，所有允许执行没有标签的作业的runner来执行命令。
 建议大家在配置的时候，建立好tags的对应关系。
@@ -184,4 +184,5 @@ job通过stage标明自己所属的阶段，通过only和except来选定可以�
 
 ## 结果查看
 配置结束以后，就可以在GitLab的Pipeline和Jobs两个地方看到执行情况了，在Jobs的位置可以看到每个步骤在服务器上的执行情况。
-![image](/images/gitlab-ci/jobs.png)
+
+![image](http://blog-1253747550.cossh.myqcloud.com/Images/gitlab-ci/jobs.png)

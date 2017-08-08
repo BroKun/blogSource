@@ -17,10 +17,10 @@ Travis CI是当前最受欢迎的CI套件，Saas模式的服务独树一帜，�
 
 ## 在Travis CI上注册并关联项目
 对于github上的开源项目，访问[Travis CI](https://www.travis-ci.org/),点击右上角使用github帐号登录。
-![www.travis-ci.org](/images/travis-ci/index.png)
+![www.travis-ci.org](http://blog-1253747550.cossh.myqcloud.com/Images/travis-ci/index.png)
 
 登录以后在右上角的头像下，选择Accounts，会看到如下界面。
-![repo](/images/travis-ci/repoList.png)
+![repo](http://blog-1253747550.cossh.myqcloud.com/Images/travis-ci/repoList.png)
 
 travis已经给了你很详细的使用指导：
   1.把开关打开 
@@ -53,10 +53,10 @@ Hexo虽然提供了deploy到github的支持，但是对于更换机器等情况�
 登录到travis，回到刚才repo列表页面，需要构建的项目开关旁边有一个设置按钮，点击进入设置。
 
 在General中把构建的触发条件选好。
-![settings-general](/images/travis-ci/settings-general.png)
+![settings-general](http://blog-1253747550.cossh.myqcloud.com/Images/travis-ci/settings-general.png)
 
 在Environment Variables中添加github token到环境变量
-![settings-environment-variables](/images/travis-ci/settings-environment-variables.png)
+![settings-environment-variables](http://blog-1253747550.cossh.myqcloud.com/Images/travis-ci/settings-environment-variables.png)
 
 ### 使用travis的deploy
 在项目中添加.travis.yml文件，内容如下:
@@ -150,7 +150,7 @@ before_install:
   -in id_rsa.enc -out id_rsa -d
 ```
 在travis网站上的项目配置里，也可以看到增加了两个环境变量
-![加密过的环境变量](/images/travis-ci/encrypted.png)
+![加密过的环境变量](http://blog-1253747550.cossh.myqcloud.com/Images/travis-ci/encrypted.png)
 
 travis把解密需要的信息保存在了自己的服务器上，我们就不用担心私钥信息丢失了，这时候把项目仓库.travis文件夹里的原始私钥删除，只保留id_rsa.enc就可以了。
 
