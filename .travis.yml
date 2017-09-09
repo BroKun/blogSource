@@ -15,9 +15,12 @@ deploy:
   email: brokun0128@gmail.com
   name: BroKun
   skip_cleanup: true
-  github_token: ${github_token} # Set in travis-ci.org dashboard
+  github_token: "${github_token}"
   on:
     branch: master
 branches:
   only:
   - master
+before_install:
+- openssl aes-256-cbc -K $encrypted_befb9cbc6467_key -iv $encrypted_befb9cbc6467_iv
+  -in id_rsa.enc -out id_rsa -d
