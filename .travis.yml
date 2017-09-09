@@ -4,6 +4,7 @@ install:
 - npm install
 script:
 - hexo g
+- hexo algolia
 deploy:
   provider: pages
   local_dir: public/
