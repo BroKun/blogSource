@@ -126,7 +126,7 @@ social_icons:
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.jpg
 # in site  directory(source/uploads): /uploads/avatar.jpg
-#avatar:
+avatar: http://blog-1253747550.cossh.myqcloud.com/common/avarar-460-460.jpg
 
 # Table Of Contents in the Sidebar
 toc:
