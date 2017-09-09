@@ -6,7 +6,7 @@
 favicon: /favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "blog, brokun, NexT"
+keywords: "种瓜得瓜,博客,blog,brokun,NexT"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -126,7 +126,7 @@ social_icons:
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.jpg
 # in site  directory(source/uploads): /uploads/avatar.jpg
-#avatar:
+avatar: http://blog-1253747550.cossh.myqcloud.com/common/avarar-460-460.jpg
 
 # Table Of Contents in the Sidebar
 toc:
@@ -249,7 +249,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: normal
+highlight_theme: night
 
 
 # ---------------------------------------------------------------
@@ -332,9 +332,9 @@ disqus:
 
 # changyan
 changyan:
-  enable: false
-  appid:
-  appkey:
+  enable: true
+  appid: cytcOB04l
+  appkey: a6a4db065e98978772e9b1a86f3e2123
 
 # Support for youyan comments system.
 # You can get your uid from http://www.uyan.cc
@@ -476,8 +476,9 @@ calendar:
   maxResults: 250
 
 # Algolia Search
+
 algolia_search:
-  enable: false
+  enable: true
   hits:
     per_page: 10
   labels:
@@ -488,7 +489,7 @@ algolia_search:
 # Local search
 # Dependencies: https://github.com/flashlab/hexo-generator-search
 local_search:
-  enable: true
+  enable: false
   # if auto, trigger search by changing input
   # if manual, trigger search by pressing enter key or search button
   trigger: auto
