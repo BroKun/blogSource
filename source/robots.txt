@@ -1,0 +1,9 @@
+User-Agent: *
+Allow: /
+Disallow: /js
+Disallow: /assets
+Disallow: /images
+Disallow: /css
+Disallow: /lib
+Sitemap: http://brokun.cn/sitemap.xml
+Sitemap: http://brokun.cn/baidusitemap.xml
