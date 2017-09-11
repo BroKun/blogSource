@@ -72,7 +72,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@git.coding.net:brokun/brokun.coding.me.git
+  repository: git@gitlab.com:BroKun/brokun.gitlab.io.git
   branch: master
 
 algolia:
