@@ -4,13 +4,15 @@ node_js:
 
 before_install:
 - openssl aes-256-cbc -K $encrypted_befb9cbc6467_key -iv $encrypted_befb9cbc6467_iv
-  -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d # 生产机登录密钥
+  -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
 - cp .travis/config ~/.ssh/config
 - chmod 600 ~/.ssh/id_rsa
 - eval $(ssh-agent)
 - ssh-add ~/.ssh/id_rsa
 - git config --global user.name "BroKun"
 - git config --global user.email "wangyukun1234@hotmail.com"
+- git remote add gitlab git@gitlab.com:BroKun/brokun.gitlab.io.git
+- git push --force --quiet gitlab master
 
 install:
 - npm install
