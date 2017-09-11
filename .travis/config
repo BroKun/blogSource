@@ -1,4 +1,4 @@
-Host git.coding.net
+Host gitlab.com
 User git
 StrictHostKeyChecking no
 IdentityFile ~/.ssh/id_rsa
