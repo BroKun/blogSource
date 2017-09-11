@@ -6,6 +6,7 @@ pages:
     - node_modules/
   script:
   - npm install hexo-cli -g
+  - npm install hexo-util -g
   - npm install
   - export HEXO_ALGOLIA_INDEXING_KEY=c722ddd1ba7f457a9bc653c47ebd6284
   - hexo algolia
