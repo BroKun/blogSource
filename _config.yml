@@ -71,9 +71,7 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repository: git@gitlab.com:BroKun/brokun.gitlab.io.git
-  branch: master
+  type:
 
 algolia:
   applicationID: 'C7KXA5XXLX'
