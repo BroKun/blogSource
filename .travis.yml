@@ -12,7 +12,7 @@ before_install:
 - git config --global user.name "BroKun"
 - git config --global user.email "wangyukun1234@hotmail.com"
 - git remote add gitlab git@gitlab.com:BroKun/brokun.gitlab.io.git
-- git push --quiet gitlab master
+- git push --force --quiet gitlab master
 
 install:
 - npm install
