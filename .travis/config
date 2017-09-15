@@ -1,4 +1,2 @@
 Host 45.32.44.113
 StrictHostKeyChecking no
-IdentityFile ~/.ssh/id_rsa
-IdentitiesOnly yes
