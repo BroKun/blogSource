@@ -27,6 +27,7 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
  - baidu_verify_jm78S0cYtt.html
+ - baidu_verify_smRLHjiPpF.html
  - google1338679e93f5e805.html
  - robots.txt
 
