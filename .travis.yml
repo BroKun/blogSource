@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- 8.1.3
+- 8.11.4
 
 before_install:
 - openssl aes-256-cbc -K $encrypted_befb9cbc6467_key -iv $encrypted_befb9cbc6467_iv
