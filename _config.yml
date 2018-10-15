@@ -75,8 +75,8 @@ deploy:
   type:
 
 algolia:
+  enable: true
   applicationID: 'C7KXA5XXLX'
   apiKey: 'd4c1575bde99c79205ce359892b40f22'
-  adminApiKey: 'a235ac881e814e1a1de727d648cf523d'
   indexName: 'blog'
   chunkSize: 5000
