@@ -13,7 +13,8 @@
           admin: '{{theme.gitalk.admin}}',
           distractionFreeMode: '{{theme.gitalk.distractionFreeMode}}',
         })
-        gitalk.render('gitalk-container')
+        try{ gitalk.render('gitalk-container')}
+        catch(ex){}
     </script>
   {% endif %}
 {% endif %}

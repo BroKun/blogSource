@@ -76,8 +76,14 @@ deploy:
   type:
 
 algolia:
-  enable: true
+  enable: false
   applicationID: 'C7KXA5XXLX'
   apiKey: 'd4c1575bde99c79205ce359892b40f22'
   indexName: 'blog'
   chunkSize: 5000
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
