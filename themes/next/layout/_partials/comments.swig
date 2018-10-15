@@ -26,8 +26,8 @@
       <div id="uyan_frame"></div>
     {% elseif theme.livere_uid %}
       <div id="lv-container" data-id="city" data-uid="{{ theme.livere_uid }}"></div>
-    {% elseif theme.changyan.appid and theme.changyan.appkey %}
-      <div id="SOHUCS"></div>
+    {% elseif theme.gitalk.distractionFreeMode %}
+      <div id="gitalk-container"></div>
     {% endif %}
   </div>
 {% endif %}

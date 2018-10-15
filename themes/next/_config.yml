@@ -321,6 +321,16 @@ han: false
 # Duoshuo ShortName
 #duoshuo_shortname:
 
+# Gitalk
+gitalk:
+  enable: true    #用来做启用判断可以不用
+  clientID: 'c13c817e959ac0fe02cd'    #上面生成的往这里怼
+  clientSecret: 'dc755a7b7949bdd592144963d8203090bdf9e243'   #同上
+  repo: BroKun.github.io    #仓库名称
+  owner: BroKun    #github用户名
+  admin: BroKun
+  distractionFreeMode: true
+
 # Disqus
 disqus:
   enable: false
@@ -329,12 +339,6 @@ disqus:
 
 # Hypercomments
 #hypercomments_id:
-
-# changyan
-changyan:
-  enable: true
-  appid: cytcOB04l
-  appkey: a6a4db065e98978772e9b1a86f3e2123
 
 # Support for youyan comments system.
 # You can get your uid from http://www.uyan.cc
@@ -380,10 +384,10 @@ changyan:
 # Make duoshuo show UA
 # user_id must NOT be null when admin_enable is true!
 # you can visit http://dev.duoshuo.com get duoshuo user id.
-duoshuo_info:
-  ua_enable: true
-  admin_enable: false
-  user_id: 0
+# duoshuo_info:
+#   ua_enable: true
+#   admin_enable: false
+#   user_id: 0
   #admin_nickname: Author
 
 

@@ -1,3 +1,4 @@
+{% include 'gitalk.swig' %}
 {% include 'duoshuo.swig' %}
 {% include 'disqus.swig' %}
 {% include 'hypercomments.swig' %}
